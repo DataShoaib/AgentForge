@@ -1,0 +1,37 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual env
+venv/
+.env/
+
+# Git
+.git
+.gitignore
+
+# Environment variables
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# Model weights (optional)
+models/
+checkpoints/
+
+# Node modules (if frontend exists)
+node_modules/
+
+# Testing
+tests/
+
+# IDE
+.vscode/
+.idea/
