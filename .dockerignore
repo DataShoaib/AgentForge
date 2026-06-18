@@ -2,8 +2,6 @@
 __pycache__/
 *.pyc
 
-# Virtual env
-venv/
 .env/
 
 # Git
@@ -35,3 +33,11 @@ tests/
 # IDE
 .vscode/
 .idea/
+
+.venv
+__pycache__
+*.pyc
+*.pyo
+.git
+.env
+*.log
