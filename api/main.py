@@ -1,28 +1,50 @@
-from langchain_core.runnables import chain
-from pydantic import BaseModel 
+from pydantic import BaseModel
 from fastapi import FastAPI
+from dotenv import load_dotenv
+
 from app.agent.agent import build_agent
 from app.schema.response import AgentResponse
 
+load_dotenv()
+
+app = FastAPI(
+    title="AI Agent API",
+    version="1.0",
+    description="API for AI Agent built with LangChain and Groq"
+)
+
+agent = None
 
 
-app=FastAPI(title='AI Agent API',version='1.0',description='API for AI Agent built with LangChain and Groq')
-agent=build_agent()
+def get_agent():
+    global agent
+
+    if agent is None:
+        agent = build_agent()
+
+    return agent
+
 
 class AgentRequest(BaseModel):
-    question:str
+    question: str
 
-@app.get('/')
+
+@app.get("/")
 async def root():
     return {"message": "Welcome to the AI Agent API"}
+
 
 @app.post("/chat")
 async def chat(req: AgentRequest):
 
-    response = agent.invoke({
-        "input": req.question,
-        "chat_history": []
-    })
+    agent_instance = get_agent()
+
+    response = agent_instance.invoke(
+        {
+            "input": req.question,
+            "chat_history": []
+        }
+    )
 
     return AgentResponse(
         answer=response["output"]

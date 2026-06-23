@@ -8,20 +8,29 @@ from app.rag.embeddings import get_embedding
 
 from app.utils.logger import logger
 
+retriever = None
 
-logger.info("Initializing RAG Pipeline...")
 
-documents = load_documents("data.txt")
+def get_retriever():
+    global retriever
 
-chunks = chunk_documents(documents)
+    if retriever is None:
 
-embedding = get_embedding()
+        logger.info("Initializing RAG Pipeline...")
 
-vectorstore = create_vectorstore(chunks, embedding)
+        documents = load_documents("data.txt")
 
-retriever = create_retriever(vectorstore, k=4)
+        chunks = chunk_documents(documents)
 
-logger.info("RAG Pipeline Ready.")
+        embedding = get_embedding()
+
+        vectorstore = create_vectorstore(chunks, embedding)
+
+        retriever = create_retriever(vectorstore, k=4)
+
+        logger.info("RAG Pipeline Ready.")
+
+    return retriever
 
 
 @tool("RAGTool")
@@ -32,13 +41,11 @@ def rag_tool(query: str) -> str:
 
     logger.info(f"RAG Tool Called: {query}")
 
-    docs = retriever.invoke(query)
+    retriever_instance = get_retriever()
+
+    docs = retriever_instance.invoke(query)
 
     if not docs:
         return "No relevant documents found."
 
-    response = "\n\n".join([doc.page_content for doc in docs])
-
-    logger.info("Documents retrieved successfully.")
-
-    return response
+    return "\n\n".join(doc.page_content for doc in docs)

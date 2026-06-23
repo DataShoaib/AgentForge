@@ -1,4 +1,4 @@
-# Python cache
+# Python cache docker ignore
 __pycache__/
 *.pyc
 
@@ -33,7 +33,7 @@ tests/
 # IDE
 .vscode/
 .idea/
-
+ui/
 .venv
 __pycache__
 *.pyc
