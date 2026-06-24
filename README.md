@@ -2,7 +2,7 @@
 
 > **Production-Grade AI Agent** — LangChain · Tool Calling · RAG · FastAPI · Streamlit · Conversational Memory · Docker
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-Live-009688?logo=fastapi&logoColor=white)](https://ai-agent-latest-64mk.onrender.com/chat)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Live-009688?logo=fastapi&logoColor=white)](https://ai-agent-latest-64mk.onrender.com/docs)
 [![Streamlit](https://img.shields.io/badge/Streamlit-Live-FF4B4B?logo=streamlit&logoColor=white)](https://agentforge-776mvmaaaugaj4wrnjjg8l.streamlit.app/)
 [![LangSmith](https://img.shields.io/badge/LangSmith-Traces%20Live-1C3C3C?logo=langchain&logoColor=white)](https://smith.langchain.com/o/0271ca3a-725c-4a8c-b006-7b9d7d49a351/projects/p/4771effe-81a0-43e1-b90d-89952ce6d41a)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://python.org)
