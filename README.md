@@ -33,13 +33,12 @@ The system implements an intelligent reasoning pipeline where the agent dynamica
 
 | Feature | Description |
 |---|---|
-| 🧠 **Agentic Reasoning** | LangChain `AgentExecutor` with ReAct-style chain-of-thought decision making |
+| 🧠 **Agentic Reasoning** | LangChain `AgentExecutor` with open-api tool calling agent decision making |
 | 🔧 **Dynamic Tool Calling** | Web Search (Tavily), Calculator, RAG — selected contextually per query |
 | 📚 **RAG Pipeline** | Document ingestion → chunking → FAISS vector store → semantic retrieval |
 | 💬 **Conversational Memory** | Persistent multi-turn chat history via `ConversationBufferMemory` |
-| ⚡ **Streaming Responses** | Real-time token streaming via FastAPI async endpoints |
-| 🌐 **FastAPI Backend** | Async, production-ready REST API with Pydantic validation |
-| 💻 **Streamlit Frontend** | Interactive chat UI with session state and history support |
+| 🌐 **FastAPI Backend** | production-ready REST API with Pydantic validation |
+| 💻 **Streamlit Frontend** | Interactive chat UI |
 | 🪵 **LangSmith Tracing** | Full observability — prompts, tool calls, outputs, and latency |
 | 🐳 **Docker Support** | Containerized deployment with `.dockerignore` and environment isolation |
 
@@ -194,11 +193,11 @@ AgentForge/
 | Layer | Technology |
 |---|---|
 | **LLM** | Groq (LLaMA 3) / OpenAI GPT |
-| **Agent Framework** | LangChain AgentExecutor + LangGraph |
+| **Agent Framework** | LangChain AgentExecutor  |
 | **Vector Database** | FAISS (CPU) |
 | **Embeddings** | Sentence Transformers |
 | **Web Search** | Tavily Search API |
-| **Backend** | FastAPI (Async) + Uvicorn |
+| **Backend** | FastAPI + Uvicorn |
 | **Frontend** | Streamlit |
 | **Observability** | LangSmith |
 | **Validation** | Pydantic v2 |
@@ -315,8 +314,7 @@ All agent runs are traced end-to-end in LangSmith, capturing:
 - Agentic reasoning with dynamic, runtime tool selection
 - Full RAG pipeline — ingestion, chunking, embedding, indexing, retrieval
 - Conversational memory for multi-turn coherence
-- Async FastAPI backend with Pydantic v2 validation
-- Real-time token streaming
+- FastAPI backend with Pydantic v2 validation
 - LangSmith observability and full trace logging
 - Dockerized deployment with environment isolation
 - `uv` for fast, reproducible dependency management
@@ -341,8 +339,4 @@ All agent runs are traced end-to-end in LangSmith, capturing:
 B.Tech — Artificial Intelligence & Data Science
 GitHub: [@DataShoaib](https://github.com/DataShoaib) · Portfolio: [datashoaib.github.io](https://datashoaib.github.io)
 
----
-
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) for details.
+---.
